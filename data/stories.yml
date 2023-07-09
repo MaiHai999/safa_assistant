@@ -1,0 +1,295 @@
+version: "3.0"
+
+
+stories:
+- story: access_web
+  steps:
+  - intent: request_access_web
+    entities:
+      - web
+  - action: action_request_access_web
+
+
+- story: access_ask_web
+  steps:
+  - intent: request_access_web
+  - action: utter_ask_request_access_web
+  - or:
+      - intent: request_access_web
+        entities:
+          - web
+      - intent: web_info
+        entities:
+          - web
+  - action: action_request_access_web
+
+
+
+- story: access_song
+  steps:
+  - intent: find_song
+    entities:
+      - song
+  - action: action_find_song
+
+
+- story: access_ask_song
+  steps:
+  - intent: find_song
+  - action: utter_ask_find_song
+  - or:
+      - intent: find_song
+        entities:
+          - song
+      - intent: song_info
+        entities:
+          - song
+  - action: action_find_song
+
+
+- story: xoso
+  steps:
+    - intent: xoso
+      entities:
+      - location
+    - action: action_xoso
+
+- story: ask_xoso
+  steps:
+    - intent: xoso
+    - action: utter_ask_province_info
+    - or:
+        - intent: location_info
+          entities:
+            - location
+        - intent: xoso
+          entities:
+            - location
+    - action: action_xoso
+
+
+- story: access_doc_bao
+  steps:
+  - or:
+      - intent: doc_bao
+        entities:
+          - news
+      - intent: news_info
+        entities:
+          - news
+  - action: action_doc_bao
+
+
+- story: access_ask_doc_bao
+  steps:
+  - intent: doc_bao
+  - action: action_doc_bao_thanh_nien
+
+
+
+- story: access_wiki
+  steps:
+  - intent: search_knowledge
+    entities:
+      - concept
+  - action: action_search_knowledge
+
+
+- story: access_ask_wiki
+  steps:
+  - intent: search_knowledge
+  - action: utter_ask_concept_info
+  - or:
+      - intent: search_knowledge
+        entities:
+          - concept
+      - intent: concept_info
+        entities:
+          - concept
+  - action: action_search_knowledge
+
+
+
+- story: access_shopee
+  steps:
+  - intent: request_access_shopee
+    entities:
+      - product
+  - action: action_request_access_shopee
+
+
+- story: access_ask_shopee
+  steps:
+  - intent: request_access_shopee
+  - action: utter_ask_request_access_shopee
+  - or:
+      - intent: request_access_shopee
+        entities:
+          - product
+      - intent: product_info
+        entities:
+          - product
+  - action: action_request_access_shopee
+
+
+
+- story: access_map
+  steps:
+  - intent: find_map
+    entities:
+      - location
+  - action: action_find_map
+
+
+- story: access_ask_map
+  steps:
+  - intent: find_map
+  - action: utter_ask_find_map
+  - or:
+      - intent: find_map
+        entities:
+          - location
+      - intent: location_info
+        entities:
+          - location
+  - action: action_find_map
+
+
+
+- story: access_price
+  steps:
+  - intent: price
+    entities:
+      - product
+  - action: action_price
+
+
+- story: access_ask_price
+  steps:
+  - intent: price
+  - action: utter_ask_price
+  - or:
+      - intent: price
+        entities:
+          - product
+      - intent: product_info
+        entities:
+          - product
+  - action: action_price
+
+
+
+- story: access_transplate
+  steps:
+  - intent: tranpslate
+    entities:
+      - language
+  - action: action_transplate
+
+
+- story: access_ask_transplate
+  steps:
+  - intent: tranpslate
+  - action: utter_ask_tranpslate
+  - or:
+      - intent: tranpslate
+        entities:
+          - language
+      - intent: language_info
+        entities:
+          - language
+  - action: action_transplate
+
+
+
+- story: access_web_3
+  steps:
+  - intent: cac_chuc_nang
+  - action: utter_cac_chuc_nang
+  - intent: bot_challenge
+  - action: utter_bot_challenge
+  - intent: affirm
+  - action: utter_affirm
+  - intent: deny
+  - action: utter_deny
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: small_story
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+
+- story: small_story1
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+
+
+- story: access_time_1
+  steps:
+  - intent: check_day_am
+  - action: action_check_day_am
+  - intent: check_day_duong
+  - action: action_check_day_duong
+  - intent: check_time
+  - action: action_check_time
+
+
+- story: access_time_2
+  steps:
+  - intent: check_day_am
+  - action: action_check_day_am
+
+
+- story: access_time_3
+  steps:
+  - intent: check_day_duong
+  - action: action_check_day_duong
+
+
+- story: access_time_4
+  steps:
+  - intent: check_time
+  - action: action_check_time
+
+
+- story: access_time_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: check_day_am
+  - action: action_check_day_am
+  - intent: check_day_duong
+  - action: action_check_day_duong
+  - intent: check_time
+  - action: action_check_time
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+
+- story: access_chuyen_cuoi1
+  steps:
+  - intent: chuyen_cuoi
+  - action: utter_chuyen_cuoi
+
+
+- story: access_chuyen_cuoi2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cac_chuc_nang
+  - action: utter_cac_chuc_nang
+  - intent: chuyen_cuoi
+  - action: utter_chuyen_cuoi
+
+
+
+
+
+
+

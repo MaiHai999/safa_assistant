@@ -1,0 +1,265 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - cac_chuc_nang
+  - check_time
+  - check_day_duong
+  - check_day_am
+  - chuyen_cuoi
+  - chuyen_buon
+  - tranpslate:
+      use_entities:
+        - language
+  - weather:
+      use_entities:
+        - location
+  - price:
+      use_entities:
+        - product
+  - search_knowledge:
+      use_entities:
+        - concept
+  - find_map:
+      use_entities:
+        - location
+  - request_access_shopee:
+      use_entities:
+        - product
+  - request_access_web:
+      use_entities:
+        - web
+  - find_song:
+      use_entities:
+        - song
+  - xoso:
+      use_entities:
+        - location
+  - doc_bao:
+      use_entities:
+        - news
+  - product_info:
+      use_entities:
+        - product
+  - concept_info:
+      use_entities:
+        - concept
+  - location_info:
+      use_entities:
+        - location
+  - news_info:
+      use_entities:
+        - news
+  - song_info:
+      use_entities:
+        - song
+  - language_info:
+      use_entities:
+        - language
+  - web_info:
+      use_entities:
+        - web
+
+
+entities:
+- web
+- song
+- product
+- location
+- concept
+- news
+- language
+
+
+slots:
+  web:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: web
+  concept:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: concept
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: location
+  product:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: product
+  song:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: song
+  news:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: news
+  language:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: language
+
+
+
+responses:
+  utter_greet:
+  - text: "Hey! bạn cần giúp gì?"
+  - text: "tôi giúp gì được bạn?"
+  - text: "bn muốn tôi giúp gì?"
+  - text: "tôi có thể làm được gì cho bạn đây?"
+  - text: "bạn muốn tôi làm gì đây?"
+
+  utter_goodbye:
+  - text: "Bye"
+  - text: "chào tạm biệt nhé"
+  - text: "hẹn gặp lại "
+  - text: "gặp lại sau nhé!"
+
+  utter_deny:
+  - text: "sory, tôi đã cố hết sức "
+  - text: "đừng trách em mà"
+  - text: "em đã cố rồi"
+  - text: "bạn trách mình á ?"
+
+
+  utter_affirm:
+  - text: "Great, hãy tiếp tục nào !"
+  - text: "thanks"
+  - text: "vậy cậu hãy vote cho tớ 1 sao nhé"
+  - text: "vậy cậu thưởng cho tui nhé"
+
+  utter_cac_chuc_nang:
+  - text: "tôi có thể mở một bài hát , truy cập fackbook , vvv !"
+
+  utter_bot_challenge:
+  - text: "tôi là trợ lý ảo Safa . Được phát triển bởi nhà khoa học dữ liệu Hải Mai"
+  - text: "tui là trợ lý ảo safa"
+  - text: "tui là máy , và đặc biệt rất chi là dễ thương"
+  - text: "Safa là tui đây"
+
+  utter_ask_province_info:
+  - text: "bạn muốn tìm tỉnh nào?"
+  - text: "tỉnh nào vậy cậu ?"
+  - text: "tỉnh nào ?"
+
+
+  utter_ask_concept_info:
+  - text: "bạn muốn biết về khái niệm gì?"
+  - text: "bạn muốn biết cái gì?"
+  - text: "bạn muốn biết về định lý gì ?"
+
+  utter_ask_price:
+  - text: "bạn muốn biết về gía của cái gì?"
+  - text: "giá của cái gì?"
+  - text: "bạn muốn tra giá của cái gì?"
+
+  utter_ask_find_map:
+  - text: "bạn muốn tìm đường đi đâu ?"
+  - text: "bạn muốn đến đâu ?"
+  - text: "tìm đường đến đâu vậy bạn ?"
+
+  utter_ask_find_song:
+  - text: "bạn muốn tìm bài hát nào ?"
+  - text: "bài hát nào vậy bạn ?"
+  - text: "cho mình xin tên bài hát ?"
+
+  utter_ask_request_access_shopee:
+  - text: "bạn muốn mua cái gì ?"
+  - text: "bạn muốn mua sản phẩm gì ?"
+  - text: "bạn muốn cái gì nhỉ ?"
+
+
+  utter_ask_request_access_web:
+  - text: "bạn muốn truy cập vào trang web nào?"
+  - text: "trang web nào ạ ?"
+  - text: "trang web tên gì á ?"
+
+
+  utter_ask_tranpslate:
+  - text: "bạn muốn dịch câu nào ?"
+  - text: "bạn hãy nhập câu muốn dịch ?"
+  - text: "bạn muốn tôi dịch câu nào ?"
+
+
+  utter_chuyen_cuoi:
+  - text: "Nữ thư ký nói với sếp: \n
+          - Sếp phải tăng lương cho tôi. Tôi còn phải nuôi mấy đứa con. \n
+          - Cô có mấy đứa? \n
+          - Hai đứa của tôi và một đứa của mẹ chồng tôi."
+  - text: "Hai cô nàng tóc vàng hoe buôn chuyện thích được tặng quà...\n
+          - Lần trước mình nói với bạn trai rằng con gái rất thích giữ gìn các món đồ được tặng.\n
+           Kết quả là hôm sau mình được tặng một chiếc nhẫn kim cương. Cậu thử học cách này xem sao?\n
+          - Cách này tớ dùng rồi. Kết quả là hôm sau tớ được tặng chất bảo quản."
+  - text: "Thấy quạ ngồi trên cây cả ngày mà không làm gì, thỏ con hỏi:\n
+          – Tôi có thể ngồi cả ngày mà không làm gì như anh không?\n
+          – Tất nhiên rồi! Sao lại không nhỉ? – quạ nói.\n
+          Vậy là thỏ con ngồi dưới đất nghỉ ngơi. Bỗng cáo già xuất hiện vồ lấy thỏ và ăn thịt."
+  - text: "Một chú chim nhỏ bay về miền Nam để trú đông. Trời rất lạnh mà chú chim lại rất yếu ớt.\n
+          Nó bị rơi xuống một cánh đồng lớn. Một người nông dân đang cầy bừa vô tình đổ một ít bùn lên người chú chim nhỏ.\n 
+          Chú chim mắc kẹt dưới bùn nhưng lại được sưởi ấm.\n
+          Chú cảm thấy rất vui và bắt đầu hát.\n 
+          Một con mèo đi ngang qua nghe thấy tiếng hót, nó đến chỗ chú chim, cào bùn cho chú chim thoát ra và ăn thịt chú chim nhỏ."
+  - text: "Năm thi đại học, tôi chỉ được 6 điểm, còn con trai của bạn mẹ tôi được 20 điểm, cậu ta đến học tại trường đại học trọng điểm, còn tôi chỉ có thể đi làm thuê.\n
+           Chín năm sau, mẹ của cậu ta chạy đến khoe khoang với tôi và mẹ tôi rằng con trai bà ta đang đi phỏng vấn vào chức giám đốc lương tháng vài chục triệu… \n
+           Còn tôi, lại đang nghĩ: có nên tuyển dụng cậu ta không."
+  - text: "Vừa xong bữa nhậu đầu năm với bạn bè, anh chồng ngất ngư đi về nhà.\n 
+           Để vợ không đoán được là mình uống rượu quá mức, anh ta quyết định đi thẳng vào phòng và ngồi đọc sách, hy vọng vợ trông thấy sẽ nghĩ là mình tỉnh táo...
+           Vài phút sau, cô vợ vào và hỏi:
+          - Anh đang làm gì vậy?
+          - Đọc sách.
+         - Vợ anh ta thét lên: Đồ điên! Đóng vali lại và ngủ đi!"
+
+
+  utter_chuyen_buon:
+  - text: "Hồi nhỏ chị hay khóc nhè, mẹ nói dối rằng, con mà còn khóc thì sẽ bị chú cảnh sát đến bắt đi đấy, chị sợ quá nên nín luôn. \n
+           Lớn lên rồi, chị quả thật đã yêu một anh cảnh sát, sáu năm bên nhau, người lớn hai nhà phản đối cãi vã suốt sáu năm. \n
+           Cuối cùng anh ấy cũng từ bỏ, kết hôn với người khác…\n
+           Ngày anh ấy cưới, chị ngẩn ngơ ngồi trước thềm nhà, đột nhiên nhớ tới điều gì đó, bèn ngoảnh lại cười với mẹ, nói: “Mẹ ơi, mẹ nói xem nếu bây giờ con khóc, chú cảnh sát có đến đưa con đi không?”\n
+           Em biết không, giây phút ấy, mẹ chị khóc đấy…\n
+           Có những mối tình kết thúc mang nhiều nỗi đau, không phải là do cả hai nhưng phải học cách chấp nhận…"
+  - text: "Tôi thích cậu ấy. Cậu ấy không thích tôi.\n
+           Sinh nhật tôi, cậu ấy tặng tôi một hộp sao. Tự tay cậu ấy gấp. Tổng cộng 999 ngôi sao.\n
+           Mãi cho đến ngày cậu ấy kết hôn, cậu ấy mới hỏi tôi :”Những câu bên trong sao tớ gấp cậu đã đọc chưa?”\n
+           Tôi vội vàng chạy về. Phát hiện bên trong mỗi ngôi sao đều là một câu tỏ tình với tôi. \n
+           Nhưng cậu ấy đã là chú rể của người khác mất rồi.\n
+           Người ta thường nói đến với nhau là duyên phận. Có những người chỉ một giây ta vô tình bỏ lỡ sẽ mãi mãi không thể thuộc về mình!"
+
+
+actions:
+  - action_request_access_web
+  - action_find_song
+  - action_check_day_duong
+  - action_check_day_am
+  - action_check_time
+  - action_xoso
+  - action_request_access_shopee
+  - action_search_knowledge
+  - action_doc_bao
+  - action_doc_bao_thanh_nien
+  - action_price
+  - action_find_map
+  - action_transplate
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
